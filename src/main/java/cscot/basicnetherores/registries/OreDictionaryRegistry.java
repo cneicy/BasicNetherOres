@@ -1,43 +1,34 @@
 package cscot.basicnetherores.registries;
-
-import cscot.basicnetherores.init.BlockInit;
-import cscot.basicnetherores.init.BlockOreInit;
 import cscot.basicnetherores.init.IngotInit;
-import cscot.basicnetherores.init.ItemInit;
-import cscot.basicnetherores.objects.blocks.BlockOreBase;
-import cscot.basicnetherores.util.handler.ConfigHandler;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
 import net.minecraftforge.oredict.OreDictionary;
+import static cscot.basicnetherores.init.BlockInit.*;
+import static cscot.basicnetherores.init.BlockOreInit.*;
 
 public class OreDictionaryRegistry {
 
 	public static void registerDictionaryOres() {
-		
-		for(Block block : BlockOreInit.BLOCKORES) {
-			
-			OreDictionary.registerOre("ore" + block.getLocalizedName().substring(7, block.getLocalizedName().length() - 4), block);
-		}
+		OreDictionary.registerOre("oreCopper", ORE_NETHERCOPPER);
+		OreDictionary.registerOre("oreEmerald", ORE_NETHEREMERALD);
+		OreDictionary.registerOre("oreDiamond", ORE_NETHERDIAMOND);
+		OreDictionary.registerOre("oreRedstone", ORE_NETHERREDSTONE);
+		OreDictionary.registerOre("oreLapis", ORE_NETHERLAPIS);
+		OreDictionary.registerOre("oreCoal", ORE_NETHERCOAL);
+		OreDictionary.registerOre("oreIron", ORE_NETHERIRON);
+		OreDictionary.registerOre("oreTin", ORE_NETHERTIN);
 	}
 
 	public static void registerDictionaryItems(){
 
-		OreDictionary.registerOre("ingot" + IngotInit.INGOT_COPPER.getUnlocalizedName().substring(11, IngotInit.INGOT_COPPER.getUnlocalizedName().length() - 0), IngotInit.INGOT_COPPER);
-		OreDictionary.registerOre("ingot" + IngotInit.INGOT_TIN.getUnlocalizedName().substring(11, IngotInit.INGOT_TIN.getUnlocalizedName().length() - 0), IngotInit.INGOT_TIN);
+		OreDictionary.registerOre("ingotCopper", IngotInit.INGOT_COPPER);
+		OreDictionary.registerOre("ingotTin", IngotInit.INGOT_TIN);
 
-		OreDictionary.registerOre("nugget" + IngotInit.NUGGET_COPPER.getUnlocalizedName().substring(12, IngotInit.NUGGET_COPPER.getUnlocalizedName().length() - 0), IngotInit.NUGGET_COPPER);
-		OreDictionary.registerOre("nugget" + IngotInit.NUGGET_TIN.getUnlocalizedName().substring(12, IngotInit.NUGGET_TIN.getUnlocalizedName().length() - 0), IngotInit.NUGGET_TIN);
+		OreDictionary.registerOre("nuggetCopper", IngotInit.NUGGET_COPPER);
+		OreDictionary.registerOre("nuggetTin", IngotInit.NUGGET_TIN);
 
 	}
 
 	public static void registerDictionaryBlocks(){
-
-		for(Block block : BlockInit.BLOCKS) {
-
-			String tmp = block.getUnlocalizedName().split("_")[1];
-			String name = "block" + tmp.substring(0, 1).toUpperCase() + tmp.substring(1);
-
-			OreDictionary.registerOre(name, block);
-		}
+		OreDictionary.registerOre("blockCopper", BLOCK_COPPER);
+		OreDictionary.registerOre("blockTin", BLOCK_TIN);
 	}
 }
